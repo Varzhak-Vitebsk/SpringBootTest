@@ -14,4 +14,10 @@ class User (val name: String) {
             }
         }
     }
+
+    fun findBook(bookId: Long): Boolean {
+        for (book in books)
+            if (book.id == bookId) return true
+        return false
+    }
 }

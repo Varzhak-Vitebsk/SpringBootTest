@@ -64,8 +64,12 @@ final class Library {
         return true
     }
 
-    fun unReserveBook(bookId: Long, userId: Long): Boolean {
-        return false
+    fun unReserveBook(bookId: Long): Boolean {
+        val book = findBook(bookId) ?: return false
+        if (book.isFree()) return false
+        book.user?.removeBook(book.id)
+        book.user = null
+        return true
     }
 
 }

@@ -67,6 +67,20 @@ class SpringBootTestApplicationTests {
 		assertFalse(library.reserveBook(book.id, -1))
 		assertTrue(library.reserveBook(book.id, user.id))
 		assertFalse(library.reserveBook(book.id, user.id))
+		assertFalse(book.isFree())
+		assertTrue(user.findBook(book.id))
+	}
+
+	@Test
+	fun libraryUnReserveBookTest() {
+		val library = Library()
+		val book = library.addBook("ABC")
+		val user = library.addUser("Somebody")
+		library.reserveBook(book.id, user.id)
+		assertTrue(library.unReserveBook(book.id))
+		assertFalse(library.unReserveBook(book.id))
+		assertTrue(book.isFree())
+		assertFalse(user.findBook(book.id))
 	}
 
 }
