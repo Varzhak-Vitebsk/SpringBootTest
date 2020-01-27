@@ -11,7 +11,7 @@ class SpringBootTestApplicationTests {
 		val book = Book("SomeBook")
 		val user = User("SomeName")
 		assertTrue(book.isFree())
-        book.user = user
+        book.userId = user.id
 		assertFalse(book.isFree())
 	}
 
@@ -53,7 +53,7 @@ class SpringBootTestApplicationTests {
 		assertEquals(library.freeBooks().size, library.bookQuantity())
 		val user = library.addUser("Somebody")
 		val book = library.addBook("ABC")
-		book.user = user
+		book.userId = user.id
 		assertEquals(library.freeBooks().size, library.bookQuantity() - 1)
 	}
 

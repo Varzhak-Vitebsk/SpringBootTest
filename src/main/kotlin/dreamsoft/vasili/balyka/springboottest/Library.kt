@@ -9,7 +9,7 @@ final class Library {
     private var bookIndex: Long = 0
     private var userIndex: Long = 0
 
-    init {
+    fun makeLibrary() {
         addBook("Dune")
         addBook("Hyperion")
         addBook("Witcher")
@@ -60,15 +60,15 @@ final class Library {
         if (user == null || book == null) return false
         if (!book.isFree()) return false
         user.addBook(book)
-        book.user = user
+        book.userId = user.id
         return true
     }
 
     fun unReserveBook(bookId: Long): Boolean {
         val book = findBook(bookId) ?: return false
         if (book.isFree()) return false
-        book.user?.removeBook(book.id)
-        book.user = null
+        findUser(book.userId)?.removeBook(book.id)
+        book.userId = -1
         return true
     }
 
