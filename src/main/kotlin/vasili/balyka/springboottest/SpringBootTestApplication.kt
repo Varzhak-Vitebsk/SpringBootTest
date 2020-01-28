@@ -1,4 +1,4 @@
-package dreamsoft.vasili.balyka.springboottest
+package vasili.balyka.springboottest
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

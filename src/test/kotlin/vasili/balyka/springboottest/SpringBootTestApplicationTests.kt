@@ -1,4 +1,4 @@
-package dreamsoft.vasili.balyka.springboottest
+package vasili.balyka.springboottest
 
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test

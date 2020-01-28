@@ -1,15 +1,21 @@
-package dreamsoft.vasili.balyka.springboottest
+package vasili.balyka.springboottest
 
 import org.springframework.stereotype.Component
 
 @Component
 final class Library {
-    val library = ArrayList<Book>()
+    private val library = ArrayList<Book>()
     private val users = ArrayList<User>()
     private var bookIndex: Long = 0
     private var userIndex: Long = 0
 
-    fun makeLibrary() {
+    init {
+        makeLibrary()
+    }
+
+    fun library() = library.clone() as ArrayList<*>
+
+    private fun makeLibrary() {
         addBook("Dune")
         addBook("Hyperion")
         addBook("Witcher")

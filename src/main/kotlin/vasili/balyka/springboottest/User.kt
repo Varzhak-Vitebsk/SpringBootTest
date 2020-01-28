@@ -1,4 +1,4 @@
-package dreamsoft.vasili.balyka.springboottest
+package vasili.balyka.springboottest
 
 class User (val name: String) {
     val books = ArrayList<Book>()

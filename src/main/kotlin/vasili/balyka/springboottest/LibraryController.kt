@@ -1,4 +1,4 @@
-package dreamsoft.vasili.balyka.springboottest
+package vasili.balyka.springboottest
 
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
@@ -9,11 +9,8 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/library")
 class LibraryController(val bookRepository: Library) {
 
-    @RequestMapping("/make")
-    fun make() = bookRepository.makeLibrary()
-
     @RequestMapping("/allbooks")
-    fun getAll(): MutableIterable<Book> = bookRepository.library
+    fun getAll(): ArrayList<*> = bookRepository.library()
 
     @RequestMapping("/freebooks")
     fun getFree(): MutableIterable<Book> = bookRepository.freeBooks()
